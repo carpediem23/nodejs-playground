@@ -1,11 +1,17 @@
 FROM node:18-alpine
-ENV NODE_ENV=production
-ENV PORT=8000
-WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install && npm run build && mv node_modules ../
+WORKDIR /usr
+COPY package.json ./
+COPY tsconfig.json ./
 COPY . .
+RUN ls -a
+RUN npm install
+RUN npm run build
+
+FROM node:18-alpine
+ENV PORT=8000
+WORKDIR /usr
+COPY package.json ./
+RUN npm install --only=production
+COPY --from=0 /usr/dist .
 EXPOSE $PORT
-RUN chown -R node /usr/src/app
-USER node
-RUN ["npm", "start"]
+CMD ["node","index.js"]
