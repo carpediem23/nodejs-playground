@@ -1,0 +1,17 @@
+dist/
+node_modules/
+public/
+.eslintrc.json
+.npmignore
+webpack.config.js
+__tests__
+.gitpod.yml
+tsconfig.json
+package-lock.json
+README.md
+postcss.config.js
+Dockerfile
+nginx.conf
+babel.config.json
+package.json
+**/*.css
