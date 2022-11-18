@@ -1,0 +1,13 @@
+dist/
+node_modules/
+public/
+.npmignore
+webpack.config.js
+__tests__
+babel.config.json
+.gitpod.yml
+tsconfig.json
+package-lock.json
+README.md
+postcss.config.js
+.prettierrc.json
