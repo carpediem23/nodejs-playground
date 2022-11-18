@@ -8,4 +8,4 @@ COPY . .
 EXPOSE $PORT
 RUN chown -R node /usr/src/app
 USER node
-CMD ["npm", "start"]
+RUN ["npm", "start"]
